@@ -20,13 +20,10 @@
         <span class="top-nav__divider" aria-hidden="true"></span>
         <a href="#recorder" class="top-nav__cta">
           <span class="top-nav__cta-icon" aria-hidden="true">
-            <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
-              ></path>
+            <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path>
             </svg>
-          </span>
-          <span>Start</span>
+          </span>          <span>Start</span>
         </a>
       </div>
     </nav>
@@ -49,6 +46,7 @@
           Voice to text,<br />
           <span>anywhere.</span>
         </h1>
+        <section id="get-wisprtype" class="relative isolate overflow-hidden border-t border-border bg-fathom px-0 py-20 md:py-24 lg:py-28 scroll-mt-24"><div aria-hidden="true" class="pointer-events-none absolute -top-20 -left-20 h-[480px] w-[480px] rounded-full opacity-50 blur-3xl" style="background: radial-gradient(circle, rgba(240, 215, 255, 0.55) 0%, transparent 65%); mix-blend-mode: screen; transform: translateX(15.5434px) translateY(-7.7717px) scale(1.01943);"></div><div aria-hidden="true" class="pointer-events-none absolute -bottom-32 -right-20 h-[520px] w-[520px] rounded-full opacity-45 blur-3xl" style="background: radial-gradient(circle, rgba(255, 179, 71, 0.55) 0%, rgba(255, 107, 157, 0.3) 40%, transparent 70%); mix-blend-mode: screen; transform: translateX(36.8281px) translateY(-27.7797px) scale(1.09524);"></div><div aria-hidden="true" class="pointer-events-none absolute top-1/3 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full opacity-30 blur-3xl" style="background: radial-gradient(circle, rgba(82, 214, 141, 0.55) 0%, transparent 60%); mix-blend-mode: screen; transform: translateY(0.0928371px) scale(1.00015);"></div><div class="mx-auto w-full max-w-5xl px-5 sm:px-6 lg:px-8 "><div style="opacity: 1; filter: blur(0px); transform: none;"><div class="mx-auto max-w-2xl text-center"><h2 class="font-display text-3xl tracking-tight sm:text-4xl md:text-5xl"><span class="text-lumen">Start </span><span class="bg-clip-text text-transparent" style="background-image:linear-gradient(120deg, #FFFFEB 0%, #F0D7FF 35%, #FFB347 70%, #FFFFEB 100%);background-size:200% 100%;animation:gradient-shift 6s ease-in-out infinite">speaking</span><span class="text-lumen">, stop typing.</span></h2><p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-lumen/75 sm:text-lg">Download WisprType for free and experience voice-to-text that actually works — fast, private, and always ready.</p></div></div></div></section>
 
         <p class="intro">
           Whisper Flow is a browser-based voice-to-text experience powered by
@@ -67,6 +65,47 @@
             </span>
             <span>Download for Windows</span>
           </a>
+
+      <section class="panel" id="recorder">
+        <div class="controls controls-recorder">
+          <button
+            id="recordButton"
+            class="recording-pill"
+            type="button"
+            aria-pressed="false"
+          >
+            <span class="recording-pill__glow"></span>
+            <span class="recording-pill__orb recording-pill__orb--blue"></span>
+            <span class="recording-pill__orb recording-pill__orb--pink"></span>
+            <span class="recording-pill__orb recording-pill__orb--orange"></span>
+            <span class="recording-pill__sheen"></span>
+            <span class="recording-pill__label" id="recordButtonLabel">
+              Start Recording
+            </span>
+          </button>
+          <button id="transcribeButton" class="ghost action-button" disabled>
+            Translate Audio
+          </button>
+        </div>
+
+        <p id="status" class="status">Waiting for microphone access.</p>
+
+        <div class="output-grid">
+          <div class="card" id="preview">
+            <h2>Preview</h2>
+            <audio id="audioPreview" controls></audio>
+          </div>
+
+          <div class="card" id="transcript-section">
+            <h2>Transcript</h2>
+            <textarea
+              id="transcript"
+              rows="10"
+              placeholder="Your transcribed text will appear here..."
+            ></textarea>
+          </div>
+        </div>
+      </section>
 
           <a href="#recorder" class="hero-secondary-link">
             <span></span>
@@ -933,46 +972,7 @@
         </div>
       </section>
 
-      <section class="panel" id="recorder">
-        <div class="controls controls-recorder">
-          <button
-            id="recordButton"
-            class="recording-pill"
-            type="button"
-            aria-pressed="false"
-          >
-            <span class="recording-pill__glow"></span>
-            <span class="recording-pill__orb recording-pill__orb--blue"></span>
-            <span class="recording-pill__orb recording-pill__orb--pink"></span>
-            <span class="recording-pill__orb recording-pill__orb--orange"></span>
-            <span class="recording-pill__sheen"></span>
-            <span class="recording-pill__label" id="recordButtonLabel">
-              Start Recording
-            </span>
-          </button>
-          <button id="transcribeButton" class="ghost action-button" disabled>
-            Translate Audio
-          </button>
-        </div>
-
-        <p id="status" class="status">Waiting for microphone access.</p>
-
-        <div class="output-grid">
-          <div class="card" id="preview">
-            <h2>Preview</h2>
-            <audio id="audioPreview" controls></audio>
-          </div>
-
-          <div class="card" id="transcript-section">
-            <h2>Transcript</h2>
-            <textarea
-              id="transcript"
-              rows="10"
-              placeholder="Your transcribed text will appear here..."
-            ></textarea>
-          </div>
-        </div>
-      </section>
+      <section id="get-wisprtype" class="relative isolate overflow-hidden border-t border-border bg-fathom px-0 py-20 md:py-24 lg:py-28 scroll-mt-24"><div aria-hidden="true" class="pointer-events-none absolute -top-20 -left-20 h-[480px] w-[480px] rounded-full opacity-50 blur-3xl" style="background: radial-gradient(circle, rgba(240, 215, 255, 0.55) 0%, transparent 65%); mix-blend-mode: screen; transform: translateX(-33.7801px) translateY(26.3717px) scale(0.957775);"></div><div aria-hidden="true" class="pointer-events-none absolute -bottom-32 -right-20 h-[520px] w-[520px] rounded-full opacity-45 blur-3xl" style="background: radial-gradient(circle, rgba(255, 179, 71, 0.55) 0%, rgba(255, 107, 157, 0.3) 40%, transparent 70%); mix-blend-mode: screen; transform: translateX(-3.58471px) translateY(2.3898px) scale(0.997013);"></div><div aria-hidden="true" class="pointer-events-none absolute top-1/3 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full opacity-30 blur-3xl" style="background: radial-gradient(circle, rgba(82, 214, 141, 0.55) 0%, transparent 60%); mix-blend-mode: screen; transform: translateY(-29.1461px) scale(0.951423);"></div><div class="mx-auto w-full max-w-5xl px-5 sm:px-6 lg:px-8 "><div style="opacity: 1; filter: blur(0px); transform: none;"><div class="mx-auto max-w-2xl text-center"><h2 class="font-display text-3xl tracking-tight sm:text-4xl md:text-5xl"><span class="text-lumen">Start </span><span class="bg-clip-text text-transparent" style="background-image:linear-gradient(120deg, #FFFFEB 0%, #F0D7FF 35%, #FFB347 70%, #FFFFEB 100%);background-size:200% 100%;animation:gradient-shift 6s ease-in-out infinite">speaking</span><span class="text-lumen">, stop typing.</span></h2><p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-lumen/75 sm:text-lg">Download WisprType for free and experience voice-to-text that actually works — fast, private, and always ready.</p><div class="mt-8 flex flex-col items-center gap-3"><button class="inline-flex min-h-[48px] items-center gap-3 rounded-md bg-lumen px-7 sm:px-8 text-base font-medium text-fathom shadow-lg ring-1 ring-vast/5 transition-all hover:opacity-90 hover:shadow-xl active:scale-[0.98]"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="h-4 w-4 shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path></svg>Download for Windows</button><p class="text-xs text-lumen/55">Requires Windows · Free</p></div></div></div></div></section>
     </main>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
