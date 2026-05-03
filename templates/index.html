@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whisper Flow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <nav class="top-nav" aria-label="Primary">
+      <div class="top-nav__shell">
+        <a href="#top" class="top-nav__brand" aria-label="Whisper Flow home">
+          Whisper Flow
+        </a>
+        <ul class="top-nav__links">
+          <li><a href="#recorder">Recorder</a></li>
+          <li><a href="#preview">Preview</a></li>
+          <li><a href="#transcript-section">Transcript</a></li>
+        </ul>
+        <span class="top-nav__divider" aria-hidden="true"></span>
+        <a href="#recorder" class="top-nav__cta">
+          <span class="top-nav__cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+              ></path>
+            </svg>
+          </span>
+          <span>Start</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="shell" id="top">
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="hero-badge__dot-wrap" aria-hidden="true">
+            <span class="hero-badge__dot-ping"></span>
+            <span class="hero-badge__dot"></span>
+          </span>
+          <span>v1.0.1</span>
+          <span class="hero-badge__sep">·</span>
+          <span>Windows</span>
+          <span class="hero-badge__sep">·</span>
+          <span>Azure Whisper</span>
+        </div>
+
+        <h1 class="hero-title">
+          Voice to text,<br />
+          <span>anywhere.</span>
+        </h1>
+
+        <p class="intro">
+          Whisper Flow is a browser-based voice-to-text experience powered by
+          Azure Whisper. Record, translate, and turn speech into text with a
+          fast Windows-friendly workflow.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#recorder" class="hero-download">
+            <span class="hero-download__icon" aria-hidden="true">
+              <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.7V32c0-17.7-14.3-32-32-32s-32 14.3-32 32v338.7L86.6 297.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128z"
+                ></path>
+              </svg>
+            </span>
+            <span>Download for Windows</span>
+          </a>
+
+          <a href="#recorder" class="hero-secondary-link">
+            <span></span>
+            <span>Open recorder</span>
+          </a>
+        </div>
+
+        <ul class="hero-points">
+          <li>Azure powered</li>
+          <li>Browser based</li>
+          <li>Free to build</li>
+          <li>No account UI required</li>
+        </ul>
+      </section>
+
+      <section class="showcase" aria-label="Whisper Flow preview">
+        <div class="showcase__halo" aria-hidden="true"></div>
+        <div class="showcase__frame" role="img" aria-label="Whisper Flow recording preview">
+          <div class="showcase__bar">
+            <div class="showcase__bar-left">
+              <span class="showcase__dots" aria-hidden="true">
+                <span class="showcase__dot showcase__dot--red"></span>
+                <span class="showcase__dot showcase__dot--yellow"></span>
+                <span class="showcase__dot showcase__dot--green"></span>
+              </span>
+              <span class="showcase__window-title">Whisper Flow - Live Capture</span>
+            </div>
+            <span class="showcase__hint">Hold to record</span>
+          </div>
+
+          <div class="showcase__body">
+            <div class="showcase__message">
+              <div class="showcase__line">
+                <span class="showcase__label">Input:</span>
+                <span class="showcase__value">Browser microphone</span>
+              </div>
+              <div class="showcase__line">
+                <span class="showcase__label">Mode:</span>
+                <span class="showcase__value">Azure Whisper translation</span>
+              </div>
+              <div class="showcase__rule"></div>
+              <p class="showcase__copy">
+                Speak naturally and let Whisper Flow capture, translate, and
+                return clean text in seconds<span class="showcase__cursor"></span>
+              </p>
+            </div>
+
+            <div class="showcase__pill-wrap">
+              <div class="showcase__pill-scale">
+                <div class="showcase__pill-shell">
+                  <div class="showcase__pill-core">
+                    <div class="showcase__pill-orb showcase__pill-orb--blue"></div>
+                    <div class="showcase__pill-orb showcase__pill-orb--pink"></div>
+                    <div class="showcase__pill-orb showcase__pill-orb--orange"></div>
+                    <div class="showcase__pill-sheen">
+                      <div class="showcase__pill-sheen-bar"></div>
+                    </div>
+                  </div>
+                  <div class="showcase__pill-glow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="showcase__footer">Hold the button, speak, and your words appear</p>
+      </section>
+
+      <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works__intro">
+          <span class="how-it-works__eyebrow">How it works</span>
+          <h2>Three steps. No setup required.</h2>
+          <p>
+            A fast browser workflow for recording, sending audio to Azure
+            Whisper, and getting clean text back in seconds.
+          </p>
+        </div>
+
+        <div class="how-it-works__rail" aria-hidden="true">
+          <div class="how-it-works__rail-base"></div>
+          <div class="how-it-works__rail-progress"></div>
+        </div>
+
+        <div class="how-it-works__grid">
+          <article class="how-it-works__step">
+            <div class="how-it-works__icon how-it-works__icon--blue">
+              <div class="how-it-works__icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+              </svg>
+            </div>
+            <div class="how-it-works__content">
+              <span class="how-it-works__step-label">Step 1</span>
+              <h3>Record</h3>
+              <p>Click the recorder pill and allow microphone access in your browser.</p>
+            </div>
+          </article>
+
+          <article class="how-it-works__step">
+            <div class="how-it-works__icon how-it-works__icon--violet">
+              <div class="how-it-works__icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
+            </div>
+            <div class="how-it-works__content">
+              <span class="how-it-works__step-label">Step 2</span>
+              <h3>Translate</h3>
+              <p>Send the captured audio to Azure Whisper for transcription or translation.</p>
+            </div>
+          </article>
+
+          <article class="how-it-works__step">
+            <div class="how-it-works__icon how-it-works__icon--green">
+              <div class="how-it-works__icon-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="how-it-works__content">
+              <span class="how-it-works__step-label">Step 3</span>
+              <h3>Use</h3>
+              <p>Review the transcript, copy the result, and drop it anywhere you need text.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="use-cases" id="use-cases">
+        <div class="use-cases__intro">
+          <span class="use-cases__eyebrow">Use cases</span>
+          <h2>Write everywhere you type.</h2>
+          <p>
+            Whisper Flow helps you move from speech to text across everyday
+            browser and desktop workflows without extra integrations.
+          </p>
+        </div>
+
+        <div class="use-cases__grid">
+          <article class="use-case-card use-case-card--blue">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <h3>Email and long replies</h3>
+              <p>Draft full emails quickly and turn spoken thoughts into cleaner written responses.</p>
+            </div>
+          </article>
+
+          <article class="use-case-card use-case-card--violet">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3>Code comments and PRs</h3>
+              <p>Capture technical context faster when you need to explain decisions, reviews, or fixes.</p>
+            </div>
+          </article>
+
+          <article class="use-case-card use-case-card--green">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Chat and messaging</h3>
+              <p>Reply faster in Slack, Teams, or web chat tools without slowing down to type everything.</p>
+            </div>
+          </article>
+
+          <article class="use-case-card use-case-card--pink">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" x2="8" y1="13" y2="13"></line>
+                  <line x1="16" x2="8" y1="17" y2="17"></line>
+                  <line x1="10" x2="8" y1="9" y2="9"></line>
+                </svg>
+              </div>
+              <h3>Docs and notes</h3>
+              <p>Capture ideas, meeting notes, and rough drafts directly into the tools where you already work.</p>
+            </div>
+          </article>
+
+          <article class="use-case-card use-case-card--orange">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                  <path d="M7 9h10"></path>
+                  <path d="M7 13h6"></path>
+                  <path d="M7 17h4"></path>
+                </svg>
+              </div>
+              <h3>Forms and search bars</h3>
+              <p>Fill tickets, search boxes, and repeated inputs quickly when typing would slow you down.</p>
+            </div>
+          </article>
+
+          <article class="use-case-card use-case-card--sky">
+            <div class="use-case-card__glow"></div>
+            <div class="use-case-card__body">
+              <div class="use-case-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" x2="20" y1="19" y2="19"></line>
+                </svg>
+              </div>
+              <h3>Terminal commands</h3>
+              <p>Speak long commands, flags, or snippets when you want faster entry and easier iteration.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="smart-typing" id="smart-typing">
+        <div class="smart-typing__intro">
+          <span class="smart-typing__eyebrow">Smart Typing</span>
+          <h2>Speak how you actually speak.</h2>
+          <p>
+            An optional cleanup layer can remove fillers, smooth out
+            self-corrections, and shape raw dictation into cleaner writing.
+          </p>
+        </div>
+
+        <div class="smart-typing__grid">
+          <article class="smart-typing__feature smart-typing__feature--hero">
+            <svg class="smart-typing__rings" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+              <circle cx="100" cy="100" r="20" stroke="currentColor" stroke-width="1"></circle>
+              <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="1"></circle>
+              <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="1"></circle>
+              <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="1"></circle>
+              <circle cx="100" cy="100" r="100" stroke="currentColor" stroke-width="1"></circle>
+            </svg>
+
+            <div class="smart-typing__hero-content">
+              <span class="smart-typing__pill-label">
+                <span class="smart-typing__pill-dot"></span>
+                Smart Typing
+              </span>
+
+              <h3>Speak.<br />We polish.</h3>
+              <p>
+                Turn raw dictation into something closer to finished writing,
+                while keeping the meaning of what you actually said.
+              </p>
+
+              <div class="smart-typing__compare">
+                <div>
+                  <span class="smart-typing__mini-label">What you said</span>
+                  <p class="smart-typing__raw">
+                    <span>um</span> <span>so</span> I was thinking <span>maybe</span>,
+                    <span>uh</span>, we should send the update today, <span>no</span>
+                    <span>actually</span> tomorrow morning
+                  </p>
+                </div>
+
+                <div class="smart-typing__arrow-row">
+                  <div class="smart-typing__arrow-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </div>
+                  <div class="smart-typing__arrow-line"></div>
+                </div>
+
+                <div>
+                  <span class="smart-typing__mini-label smart-typing__mini-label--strong">What gets typed</span>
+                  <p class="smart-typing__clean">
+                    I was thinking we should send the update tomorrow morning.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="smart-typing__feature">
+            <span class="smart-typing__index">01 · Fillers</span>
+            <h3>Goodbye, fillers.</h3>
+            <p>The little words you say out loud but never want left in the final text.</p>
+            <ul class="smart-typing__chips">
+              <li>um</li>
+              <li>uh</li>
+              <li>so</li>
+              <li>like</li>
+              <li>basically</li>
+              <li>you know</li>
+              <li>yeah</li>
+              <li>kinda</li>
+            </ul>
+          </article>
+
+          <article class="smart-typing__feature">
+            <span class="smart-typing__index">02 · Punctuation</span>
+            <h3>Better commas, periods, and questions.</h3>
+            <div class="smart-typing__example-stack">
+              <div class="smart-typing__example smart-typing__example--raw">
+                <p>what time is the meeting tomorrow</p>
+              </div>
+              <div class="smart-typing__example smart-typing__example--clean">
+                <p>What time is the meeting tomorrow<span>?</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="smart-typing__feature">
+            <span class="smart-typing__index">03 · Self-corrections</span>
+            <h3>Changed your mind? We keep up.</h3>
+            <p>When you revise yourself mid-sentence, Smart Typing can preserve the version you meant.</p>
+            <div class="smart-typing__revision">
+              <p>
+                Send the update <span>today</span><span>, no actually,</span>
+                <strong>tomorrow morning</strong><span> before the standup</span>.
+              </p>
+            </div>
+            <div class="smart-typing__final">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+              <p>Send the update tomorrow morning.</p>
+            </div>
+          </article>
+
+          <article class="smart-typing__feature smart-typing__feature--compact smart-typing__feature--privacy">
+            <div class="smart-typing__compact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3>Stays private.</h3>
+            <p>Keep cleanup logic local to your flow and avoid exposing edited text more broadly than needed.</p>
+          </article>
+
+          <article class="smart-typing__feature smart-typing__feature--compact">
+            <div class="smart-typing__toggle-row">
+              <span class="smart-typing__index">Always optional</span>
+              <span class="smart-typing__toggle" aria-label="Smart Typing on">
+                <span></span>
+              </span>
+            </div>
+            <h3>Toggle it any time.</h3>
+            <p>Turn cleanup on for polished writing and off when you want the raw transcript as-is.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dictionary" id="dictionary">
+        <div class="dictionary__intro">
+          <span class="dictionary__eyebrow">Custom dictionary</span>
+          <h2>Your words, your way.</h2>
+          <p>
+            Give Whisper Flow the names, technical terms, and domain-specific
+            language you use every day so your transcripts stay closer to what
+            you meant.
+          </p>
+        </div>
+
+        <div class="dictionary__grid">
+          <article class="dictionary__card">
+            <div class="dictionary__card-head">
+              <h3>Names</h3>
+              <span>6 entries</span>
+            </div>
+            <ul class="dictionary__chips dictionary__chips--names">
+              <li>Aarav Patel</li>
+              <li>Whisper Flow</li>
+              <li>Anthropic</li>
+              <li>Substack</li>
+              <li>Linear</li>
+              <li>Figma</li>
+            </ul>
+          </article>
+
+          <article class="dictionary__card">
+            <div class="dictionary__card-head">
+              <h3>Technical</h3>
+              <span>6 entries</span>
+            </div>
+            <ul class="dictionary__chips dictionary__chips--technical">
+              <li>TypeScript</li>
+              <li>Kubernetes</li>
+              <li>GraphQL</li>
+              <li>Postgres</li>
+              <li>RAG</li>
+              <li>OAuth</li>
+            </ul>
+          </article>
+
+          <article class="dictionary__card">
+            <div class="dictionary__card-head">
+              <h3>Medical</h3>
+              <span>5 entries</span>
+            </div>
+            <ul class="dictionary__chips dictionary__chips--medical">
+              <li>myocardial</li>
+              <li>ibuprofen</li>
+              <li>hypertension</li>
+              <li>electrolyte</li>
+              <li>ECG</li>
+            </ul>
+          </article>
+
+          <article class="dictionary__card">
+            <div class="dictionary__card-head">
+              <h3>Legal</h3>
+              <span>4 entries</span>
+            </div>
+            <ul class="dictionary__chips dictionary__chips--legal">
+              <li>voir dire</li>
+              <li>amicus curiae</li>
+              <li>force majeure</li>
+              <li>prima facie</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="dictionary__footer">
+          <p>
+            <span>Get domain-specific words right the first time.</span>
+            <span>No more fixing the same names and terms again and again.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="features__intro">
+          <span class="features__eyebrow">Features</span>
+          <h2>Everything you need.</h2>
+          <p>
+            A focused speech-to-text experience with the core pieces needed to
+            record, process, and refine transcripts in one place.
+          </p>
+        </div>
+
+        <div class="features__grid">
+          <article class="feature-card feature-card--blue">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">🎙️</span>
+              <h3>Browser recording</h3>
+              <p>Capture microphone audio directly in the browser with a simple start-and-stop flow.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--violet">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">✨</span>
+              <h3>Smart cleanup ready</h3>
+              <p>Add optional post-processing to remove fillers, fix phrasing, and improve readability.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--pink">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">📖</span>
+              <h3>Custom dictionary</h3>
+              <p>Support names, jargon, and repeated terminology so domain language is easier to preserve.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--green">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">☁️</span>
+              <h3>Azure Whisper integration</h3>
+              <p>Send captured audio to Azure OpenAI Whisper for transcription or translation.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--lavender">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">💊</span>
+              <h3>Floating aurora recorder</h3>
+              <p>A glassy animated recorder pill gives the interface a clear and memorable interaction point.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--orange">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">🔑</span>
+              <h3>Configurable credentials</h3>
+              <p>Use environment-based Azure settings so deployments and API keys stay separate from code.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--sky">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">⚡</span>
+              <h3>Fast iteration</h3>
+              <p>Run locally, refresh quickly, and test changes against your own Azure endpoint in seconds.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--amber">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">📋</span>
+              <h3>Preview before use</h3>
+              <p>Listen back to the captured audio and inspect the generated transcript before reusing it.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card--plum">
+            <div class="feature-card__glow"></div>
+            <div class="feature-card__body">
+              <span class="feature-card__emoji" aria-hidden="true">🎚️</span>
+              <h3>Built to expand</h3>
+              <p>This foundation is ready for history, exports, richer workflows, and smarter transcript handling.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="pill-phases" id="pill-phases">
+        <div class="pill-phases__intro">
+          <span class="pill-phases__eyebrow">The pill</span>
+          <h2>A glance is all it takes.</h2>
+          <p>
+            A glassy capsule can signal each step of the flow, from recording
+            through translation and final output, without taking over the page.
+          </p>
+        </div>
+
+        <div class="pill-phases__demo">
+          <div class="pill-phases__visual-wrap">
+            <div class="pill-phases__backglow" aria-hidden="true"></div>
+
+            <div class="pill-phases__visual">
+              <div class="pill-phases__state" data-phase-visual="idle">
+                <div class="pill-phases__orb pill-phases__orb--gray-a"></div>
+                <div class="pill-phases__orb pill-phases__orb--gray-b"></div>
+                <div class="pill-phases__orb pill-phases__orb--gray-c"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+
+              <div class="pill-phases__state is-active" data-phase-visual="recording">
+                <div class="pill-phases__orb pill-phases__orb--record-blue"></div>
+                <div class="pill-phases__orb pill-phases__orb--record-pink"></div>
+                <div class="pill-phases__orb pill-phases__orb--record-orange"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+
+              <div class="pill-phases__state" data-phase-visual="transcribing">
+                <div class="pill-phases__orb pill-phases__orb--transcribe-violet"></div>
+                <div class="pill-phases__orb pill-phases__orb--transcribe-sky"></div>
+                <div class="pill-phases__orb pill-phases__orb--transcribe-cloud"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+
+              <div class="pill-phases__state" data-phase-visual="cleaning">
+                <div class="pill-phases__orb pill-phases__orb--clean-violet"></div>
+                <div class="pill-phases__orb pill-phases__orb--clean-plum"></div>
+                <div class="pill-phases__orb pill-phases__orb--clean-lilac"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+
+              <div class="pill-phases__state" data-phase-visual="inserting">
+                <div class="pill-phases__orb pill-phases__orb--insert-green"></div>
+                <div class="pill-phases__orb pill-phases__orb--insert-mint"></div>
+                <div class="pill-phases__orb pill-phases__orb--insert-teal"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+
+              <div class="pill-phases__state" data-phase-visual="loading">
+                <div class="pill-phases__orb pill-phases__orb--load-amber"></div>
+                <div class="pill-phases__orb pill-phases__orb--load-orange"></div>
+                <div class="pill-phases__orb pill-phases__orb--load-gold"></div>
+                <div class="pill-phases__shine"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pill-phases__caption">
+            <div class="pill-phases__copy is-active" data-phase-copy="recording">
+              <span>Phase 01 / 06</span>
+              <h3>Recording</h3>
+              <p>Capturing what you say in real time.</p>
+            </div>
+
+            <div class="pill-phases__copy" data-phase-copy="transcribing">
+              <span>Phase 02 / 06</span>
+              <h3>Transcribing</h3>
+              <p>Sending audio through Azure Whisper for text generation.</p>
+            </div>
+
+            <div class="pill-phases__copy" data-phase-copy="cleaning">
+              <span>Phase 03 / 06</span>
+              <h3>Cleaning</h3>
+              <p>Optional post-processing smooths punctuation and phrasing.</p>
+            </div>
+
+            <div class="pill-phases__copy" data-phase-copy="inserting">
+              <span>Phase 04 / 06</span>
+              <h3>Inserting</h3>
+              <p>Dropping the final result into the transcript area for use.</p>
+            </div>
+
+            <div class="pill-phases__copy" data-phase-copy="loading">
+              <span>Phase 05 / 06</span>
+              <h3>Loading</h3>
+              <p>Preparing the recorder, models, or session state for the next action.</p>
+            </div>
+
+            <div class="pill-phases__copy" data-phase-copy="idle">
+              <span>Phase 06 / 06</span>
+              <h3>Idle</h3>
+              <p>Ready and waiting quietly until the next recording begins.</p>
+            </div>
+          </div>
+
+          <div class="pill-phases__controls">
+            <ul class="pill-phases__list">
+              <li>
+                <button type="button" class="pill-phases__button is-active" data-phase="recording" aria-pressed="true">
+                  <span class="pill-phases__dot pill-phases__dot--recording"></span>
+                  <span>Recording</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="pill-phases__button" data-phase="transcribing" aria-pressed="false">
+                  <span class="pill-phases__dot pill-phases__dot--transcribing"></span>
+                  <span>Transcribing</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="pill-phases__button" data-phase="cleaning" aria-pressed="false">
+                  <span class="pill-phases__dot pill-phases__dot--cleaning"></span>
+                  <span>Cleaning</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="pill-phases__button" data-phase="inserting" aria-pressed="false">
+                  <span class="pill-phases__dot pill-phases__dot--inserting"></span>
+                  <span>Inserting</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="pill-phases__button" data-phase="loading" aria-pressed="false">
+                  <span class="pill-phases__dot pill-phases__dot--loading"></span>
+                  <span>Loading</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="pill-phases__button" data-phase="idle" aria-pressed="false">
+                  <span class="pill-phases__dot pill-phases__dot--idle"></span>
+                  <span>Idle</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <p class="pill-phases__footer">Auto-cycling · click any phase to focus</p>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy">
+        <div class="privacy-section__orb" aria-hidden="true"></div>
+
+        <div class="privacy-section__inner">
+          <div class="privacy-section__content">
+            <div class="privacy-section__icon-wrap">
+              <div class="privacy-section__icon-glow" aria-hidden="true"></div>
+              <div class="privacy-section__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <h2>Privacy-first, always.</h2>
+            <p>
+              Whisper Flow keeps your browser recording experience simple and transparent.
+              Audio is only sent to the Azure endpoint you configure, and this interface
+              does not collect transcripts, voice clips, or personal content on its own.
+            </p>
+
+            <div class="privacy-section__chips">
+              <span>Bring your own Azure endpoint</span>
+              <span>No built-in data collection</span>
+              <span>Transcript stays in your session</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq">
+        <div class="faq-section__intro">
+          <span class="faq-section__eyebrow">FAQ</span>
+          <h2>Common questions.</h2>
+          <p>If you do not see your question here, you can extend the app or tailor the flow to your needs.</p>
+        </div>
+
+        <div class="faq-section__panel">
+          <ul class="faq-section__list">
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Is Whisper Flow free to use?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    The interface itself is just your local app code, so there is no built-in subscription here.
+                    Your actual cost depends on the Azure services and usage tied to the endpoint you configure.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>What is Smart Typing in this project?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    Smart Typing is the optional cleanup concept shown in the landing page. It means taking a raw
+                    transcript and improving fillers, punctuation, and self-corrections before you reuse the text.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Does it only work on Apple Silicon or macOS?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    No. This version is a browser-based Flask app and is currently framed for a Windows-friendly
+                    workflow. The key requirement is browser microphone access plus a working Azure Whisper setup.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Does Whisper Flow send audio or transcripts anywhere?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    Audio is sent to the Azure endpoint you configure for transcription or translation. Outside of that,
+                    this app does not add its own remote storage or separate transcript collection layer.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Can I teach it names, jargon, or domain terms?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    The page already presents a custom dictionary concept, and the project can be extended to support it.
+                    That is the right place to preserve recurring names, acronyms, and domain-specific language.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Should I use translation or transcription mode?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    Use translation mode when you want English output from supported spoken input. Use transcription mode
+                    when you want the transcript returned in the original spoken language.
+                  </p>
+                </div>
+              </details>
+            </li>
+
+            <li>
+              <details class="faq-item">
+                <summary>
+                  <span>Can I change the record interaction later?</span>
+                  <span class="faq-item__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="faq-item__body">
+                  <p>
+                    Yes. Right now the app uses a browser recording button, but the UI and backend are structured in a way
+                    that can evolve into push-to-talk, shortcuts, history, export flows, or richer desktop-style behavior.
+                  </p>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+
+        <div class="faq-section__footer">
+          <p>Still wondering? <a href="#recorder">Try the recorder</a> and keep shaping the flow.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="recorder">
+        <div class="controls controls-recorder">
+          <button
+            id="recordButton"
+            class="recording-pill"
+            type="button"
+            aria-pressed="false"
+          >
+            <span class="recording-pill__glow"></span>
+            <span class="recording-pill__orb recording-pill__orb--blue"></span>
+            <span class="recording-pill__orb recording-pill__orb--pink"></span>
+            <span class="recording-pill__orb recording-pill__orb--orange"></span>
+            <span class="recording-pill__sheen"></span>
+            <span class="recording-pill__label" id="recordButtonLabel">
+              Start Recording
+            </span>
+          </button>
+          <button id="transcribeButton" class="ghost action-button" disabled>
+            Translate Audio
+          </button>
+        </div>
+
+        <p id="status" class="status">Waiting for microphone access.</p>
+
+        <div class="output-grid">
+          <div class="card" id="preview">
+            <h2>Preview</h2>
+            <audio id="audioPreview" controls></audio>
+          </div>
+
+          <div class="card" id="transcript-section">
+            <h2>Transcript</h2>
+            <textarea
+              id="transcript"
+              rows="10"
+              placeholder="Your transcribed text will appear here..."
+            ></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+  </html>
